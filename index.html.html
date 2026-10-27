@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Guide | India's Premier College Discovery & Mentorship</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            amber: '#d97706',
+                            dark: '#0f172a',
+                            surface: '#1e293b',
+                            accent: '#fbbf24',
+                        }
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px -5px rgba(245, 158, 11, 0.35)',
+                        'gold-sm': '0 0 15px -3px rgba(245, 158, 11, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b1120;
+            color: #e2e8f0;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 text-slate-950 font-semibold text-xs sm:text-sm py-2 px-4 text-center flex items-center justify-center gap-2 shadow-md">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Authentic reviews directly from verified seniors at IITs, NITs, Central & State Universities!</span>
+        <a href="#instagram-section" class="underline ml-1 font-bold hover:text-white transition">Follow our Instagram</a>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 rounded-full border-2 border-amber-400 p-0.5 shadow-gold-sm flex items-center justify-center bg-slate-950 transition duration-300 group-hover:scale-105">
+                    <!-- Custom SVG Matching Circular Student & Campus Building Emblem -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-amber-400 fill-current">
+                        <!-- Outer Halo Accent -->
+                        <circle cx="50" cy="50" r="47" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.4" stroke-dasharray="160 30" />
+                        <!-- Student Silhouette with Grad Cap -->
+                        <path d="M 24 35 L 36 27 L 48 35 L 36 41 Z" />
+                        <path d="M 45 38 L 47 48" stroke="currentColor" stroke-width="2" />
+                        <circle cx="36" cy="46" r="6" />
+                        <path d="M 23 68 C 23 55, 49 55, 49 68 Z" />
+                        <!-- Backpack Accent -->
+                        <path d="M 21 60 Q 25 55 27 68" stroke="currentColor" stroke-width="2.5" fill="none" />
+                        <!-- Campus Building Silhouette with Dome & Columns -->
+                        <rect x="62" y="44" width="14" height="26" />
+                        <rect x="54" y="52" width="8" height="18" />
+                        <rect x="76" y="52" width="8" height="18" />
+                        <path d="M 69 35 C 65 35 62 40 62 44 L 76 44 C 76 40 73 35 69 35 Z" />
+                        <line x1="69" y1="31" x2="69" y2="35" stroke="currentColor" stroke-width="2" />
+                        <path d="M 66 70 C 66 65 72 65 72 70" fill="#0b1120" />
+                        <!-- Pathway Base -->
+                        <path d="M 12 77 Q 50 71 88 77 L 86 81 Q 50 76 14 81 Z" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="text-xl font-black tracking-wider text-slate-100 flex items-center gap-1">
+                        CAMPUS <span class="text-amber-400">GUIDE</span>
+                    </div>
+                    <div class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">Academics • Campus • Seniors</div>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#explore" class="hover:text-amber-400 transition">Explore Institutes</a>
+                <a href="#ratings-focus" class="hover:text-amber-400 transition">Academic Metrics</a>
+                <a href="#mentorship" class="hover:text-amber-400 transition">1-on-1 Mentorship</a>
+                <a href="#reviews" class="hover:text-amber-400 transition">Senior Reviews</a>
+            </nav>
+
+            <!-- User Auth Profile Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Guest View -->
+                <div id="guest-auth" class="flex items-center gap-2">
+                    <button onclick="openAuthModal('login')" class="text-sm font-semibold text-slate-300 hover:text-white px-3 py-1.5 transition">
+                        Sign In
+                    </button>
+                    <button onclick="openAuthModal('signup')" class="text-sm font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl transition shadow-gold-sm">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Logged In View -->
+                <div id="user-profile-menu" class="hidden flex items-center gap-3">
+                    <div class="text-right hidden sm:block">
+                        <p id="nav-user-name" class="text-xs font-bold text-slate-200">Student</p>
+                        <p id="nav-user-stream" class="text-[10px] text-amber-400">Undergraduate</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-slate-800 border border-amber-400 flex items-center justify-center text-amber-400 font-bold shadow">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <button onclick="logoutUser()" title="Logout" class="p-2 text-slate-400 hover:text-red-400 text-sm transition">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-16 lg:py-24 overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-[#0b1120]">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,158,11,0.12),transparent_50%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <span class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide mb-6">
+                <i class="fa-solid fa-compass"></i> Real Reality Behind Campus Walls
+            </span>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+                Find where the <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">Best Research, Food & Campus Life</span> really exist.
+            </h1>
+
+            <p class="mt-6 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                No marketing brochures. <strong>Campus Guide</strong> gives genuine data sourced directly from current students across India's Central Universities, IITs, NITs, and State Universities.
+            </p>
+
+            <!-- Quick Stat Bar -->
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-center">
+                    <div class="text-2xl font-black text-amber-400">100+</div>
+                    <div class="text-xs text-slate-400 mt-1">Central & Tech Univs</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-center">
+                    <div class="text-2xl font-black text-amber-400">12,500+</div>
+                    <div class="text-xs text-slate-400 mt-1">Verified Senior Reviews</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-center">
+                    <div class="text-2xl font-black text-amber-400">4.8 / 5</div>
+                    <div class="text-xs text-slate-400 mt-1">Research Index Metric</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-center">
+                    <div class="text-2xl font-black text-amber-400">1-on-1</div>
+                    <div class="text-xs text-slate-400 mt-1">Senior Mentorship</div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="#explore" class="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition flex items-center gap-2 shadow-gold-sm">
+                    <i class="fa-solid fa-magnifying-glass"></i> Explore Colleges Now
+                </a>
+                <button onclick="openMentorshipModal()" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition flex items-center gap-2">
+                    <i class="fa-solid fa-user-group text-amber-400"></i> Request Mentor Session
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN FILTER & DISCOVERY ENGINE -->
+    <main id="explore" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- SIDEBAR FILTERS -->
+            <aside class="w-full lg:w-80 shrink-0">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sticky top-28 shadow-xl">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                        <div class="flex items-center gap-2 font-bold text-white text-base">
+                            <i class="fa-solid fa-sliders text-amber-400"></i> Refine Search
+                        </div>
+                        <button onclick="resetFilters()" class="text-xs text-amber-400 hover:underline">Reset All</button>
+                    </div>
+
+                    <!-- Search by name/city -->
+                    <div class="mt-5">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Institute Name or City</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-building-columns absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+                            <input type="text" id="filter-search" oninput="applyFilters()" placeholder="e.g. Delhi, IIT, JNU, BHU..." class="w-full pl-9 pr-3 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+                        </div>
+                    </div>
+
+                    <!-- Institute Category -->
+                    <div class="mt-5">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Institute Category</label>
+                        <select id="filter-type" onchange="applyFilters()" class="w-full p-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-amber-400">
+                            <option value="ALL">All Categories</option>
+                            <option value="IIT">IIT (Indian Institute of Technology)</option>
+                            <option value="NIT">NIT (National Institute of Technology)</option>
+                            <option value="Central">Central University</option>
+                            <option value="State">State University</option>
+                        </select>
+                    </div>
+
+                    <!-- Academic Stream -->
+                    <div class="mt-5">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Academic Stream</label>
+                        <select id="filter-stream" onchange="applyFilters()" class="w-full p-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-amber-400">
+                            <option value="ALL">All Streams</option>
+                            <option value="Science">Science (Physics, Chemistry, Bio)</option>
+                            <option value="Engineering">Engineering & Technology</option>
+                            <option value="Arts">Arts & Humanities / Social Sci</option>
+                            <option value="Commerce">Commerce & Management</option>
+                            <option value="Law">Law & Legal Studies</option>
+                        </select>
+                    </div>
+
+                    <!-- Degree Level -->
+                    <div class="mt-5">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Degree Level</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button type="button" onclick="toggleDegree('UG', this)" class="degree-btn py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-950 text-slate-300 hover:border-amber-400 transition active-btn">UG</button>
+                            <button type="button" onclick="toggleDegree('PG', this)" class="degree-btn py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-950 text-slate-300 hover:border-amber-400 transition">PG</button>
+                            <button type="button" onclick="toggleDegree('PhD', this)" class="degree-btn py-2 text-xs font-bold rounded-lg border border-slate-700 bg-slate-950 text-slate-300 hover:border-amber-400 transition">PhD</button>
+                        </div>
+                    </div>
+
+                    <!-- Priority Criteria -->
+                    <div class="mt-5 pt-4 border-t border-slate-800">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Top Priority Metric</label>
+                        <select id="filter-sort" onchange="applyFilters()" class="w-full p-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-amber-400">
+                            <option value="research">High Research & Labs</option>
+                            <option value="food">Best Mess & Food Quality</option>
+                            <option value="hostel">Clean & Spacious Hostels</option>
+                            <option value="environment">Campus Life & Greenery</option>
+                            <option value="academics">Faculty & Academics</option>
+                        </select>
+                    </div>
+
+                    <!-- Minimum Star Filter -->
+                    <div class="mt-5">
+                        <div class="flex justify-between text-xs text-slate-400 mb-1">
+                            <span>Min Rating:</span>
+                            <span id="rating-val" class="text-amber-400 font-bold">3.5+</span>
+                        </div>
+                        <input type="range" id="filter-min-rating" min="3.0" max="4.8" step="0.2" value="3.5" oninput="updateRatingDisplay(this.value); applyFilters();" class="w-full accent-amber-500 cursor-pointer">
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- INSTITUTE LISTING CARDS -->
+            <section class="flex-1">
+                <!-- Status & Counter -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                            Institutes & Universities
+                            <span id="results-count" class="text-xs bg-amber-500/20 text-amber-400 font-bold px-2.5 py-1 rounded-full border border-amber-500/30">8 Listed</span>
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">Real ratings based on student feedback on mess, academics, research, and hostels</p>
+                    </div>
+                    <div class="text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Senior Data Updated For 2024-2025
+                    </div>
+                </div>
+
+                <!-- Grid Container -->
+                <div id="colleges-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Populated via JavaScript -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="hidden text-center py-16 px-4 bg-slate-900/50 rounded-2xl border border-slate-800 mt-6">
+                    <i class="fa-solid fa-graduation-cap text-4xl text-slate-600 mb-3"></i>
+                    <h3 class="text-lg font-bold text-slate-300">No Institutes Match Your Filter</h3>
+                    <p class="text-sm text-slate-500 max-w-sm mx-auto mt-1">Try resetting the stream, degree level, or minimum rating threshold to explore more institutes.</p>
+                    <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl hover:bg-amber-400 transition">Reset Filters</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- KEY EVALUATION PARAMETERS (Academics & Research Focus) -->
+    <section id="ratings-focus" class="bg-slate-900/60 border-y border-slate-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">How We Score Every Institute</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">Authentic Metrics Beyond The Brochures</h2>
+                <p class="text-slate-400 text-sm mt-3">We collect 5 crucial factors directly from currently enrolled senior scholars and alumni.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Research Labs & Grants</h4>
+                    <p class="text-xs text-slate-400 mt-1">PhD lab availability, state equipment, publishing freedom, and professor project grants.</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Food & Mess Quality</h4>
+                    <p class="text-xs text-slate-400 mt-1">Hygiene, daily menu variety, regional taste availability, and student mess committees.</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Hostel Living</h4>
+                    <p class="text-xs text-slate-400 mt-1">Room size, 24/7 electricity, Wi-Fi speed, washroom cleanliness, and curfew rules.</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Campus Environment</h4>
+                    <p class="text-xs text-slate-400 mt-1">Green space, library hours, clubs, sports facilities, security, and inclusive culture.</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 transition">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Faculty Approach</h4>
+                    <p class="text-xs text-slate-400 mt-1">Teaching quality, attendance leniency, grading fairness, and mentorship support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERIFIED SENIOR FEEDBACK SECTION -->
+    <section id="reviews" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
+            <div>
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Ground Realities</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Direct Student Testimonials</h2>
+            </div>
+            <button onclick="openFeedbackModal()" class="px-4 py-2.5 rounded-xl border border-amber-500/50 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-bold text-xs transition flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square"></i> Share Your Campus Review
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Review 1 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-md text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">IIT Delhi</span>
+                        <div class="text-amber-400 text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "For AI/ML and Nanotech research, IIT Delhi is unmatched. However, hostels (especially older ones) have smaller rooms. The campus life in Hauz Khas is very vibrant with non-stop cultural fests."
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">RK</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Rahul K.</div>
+                        <div class="text-[10px] text-slate-400">M.Tech Scholar (Computer Science)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-md text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">JNU New Delhi</span>
+                        <div class="text-amber-400 text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "If you are into Arts, International Studies, or Life Sciences, JNU provides the most affordable yet intellectually open environment in India. The 24/7 library and dhaba culture is unbeatable."
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">SM</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Shreya Mukherjee</div>
+                        <div class="text-[10px] text-slate-400">PhD Candidate (SIS)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-md text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">NIT Trichy</span>
+                        <div class="text-amber-400 text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "Top-notch placements and sports facilities. South & North Indian mess options are separate, so food is never an issue. Strict initial year curfew, but very safe campus."
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">AV</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Ananya V.</div>
+                        <div class="text-[10px] text-slate-400">B.Tech 4th Year (ECE)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENTORSHIP & INSTAGRAM BANNER -->
+    <section id="instagram-section" class="py-12 bg-gradient-to-r from-amber-600/20 via-slate-900 to-amber-700/20 border-y border-amber-500/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-950/80 border border-amber-500/30 rounded-3xl p-8 sm:p-12 shadow-gold-glow flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-xl text-center md:text-left">
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-400 mb-2">
+                        <i class="fa-brands fa-instagram text-base"></i> Join Campus Guide Official Community
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white">Connect Directly With College Seniors</h2>
+                    <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                        Follow our Instagram page for weekly live sessions with toppers from Central Universities, IITians, and NITians answering your hostel, subject choices, and admission queries.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-amber-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg hover:opacity-90 transition">
+                            <i class="fa-brands fa-instagram text-lg"></i> Follow @campusguide.in
+                        </a>
+                        <button onclick="openMentorshipModal()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-400 font-bold text-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-headset"></i> Book 1-on-1 Guidance
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Circular Logo Graphic in the Banner -->
+                <div class="w-48 h-48 sm:w-56 sm:h-56 relative flex items-center justify-center shrink-0">
+                    <div class="absolute inset-0 rounded-full border-2 border-amber-400/30 animate-pulse"></div>
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-amber-400 p-2 shadow-gold-glow bg-slate-900 flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-amber-400 fill-current">
+                            <circle cx="50" cy="50" r="47" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.4" stroke-dasharray="160 30" />
+                            <path d="M 24 35 L 36 27 L 48 35 L 36 41 Z" />
+                            <path d="M 45 38 L 47 48" stroke="currentColor" stroke-width="2" />
+                            <circle cx="36" cy="46" r="6" />
+                            <path d="M 23 68 C 23 55, 49 55, 49 68 Z" />
+                            <rect x="62" y="44" width="14" height="26" />
+                            <rect x="54" y="52" width="8" height="18" />
+                            <rect x="76" y="52" width="8" height="18" />
+                            <path d="M 69 35 C 65 35 62 40 62 44 L 76 44 C 76 40 73 35 69 35 Z" />
+                            <path d="M 12 77 Q 50 71 88 77 L 86 81 Q 50 76 14 81 Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-12 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 text-white font-extrabold text-lg">
+                        <span class="text-amber-400"><i class="fa-solid fa-graduation-cap"></i></span> CAMPUS GUIDE
+                    </div>
+                    <p class="mt-3 text-slate-400 text-xs sm:text-sm max-w-sm leading-relaxed">
+                        An unbiased educational platform built for students, powered by active senior students. Find real details about Indian Central Universities, State Universities, IITs, and NITs.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Popular Categories</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#explore" onclick="quickSelectCategory('Central')" class="hover:text-amber-400 transition">Central Universities</a></li>
+                        <li><a href="#explore" onclick="quickSelectCategory('IIT')" class="hover:text-amber-400 transition">IITs & Tech Research</a></li>
+                        <li><a href="#explore" onclick="quickSelectCategory('NIT')" class="hover:text-amber-400 transition">NITs of India</a></li>
+                        <li><a href="#explore" onclick="quickSelectCategory('State')" class="hover:text-amber-400 transition">Top State Universities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Community & Help</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#instagram-section" class="hover:text-amber-400 transition">Instagram Updates</a></li>
+                        <li><button onclick="openMentorshipModal()" class="hover:text-amber-400 transition">Request Mentorship</button></li>
+                        <li><button onclick="openFeedbackModal()" class="hover:text-amber-400 transition">Submit College Data</button></li>
+                        <li><span class="text-slate-500">contact@campusguide.in</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>&copy; 2026 Campus Guide Inc. All rights reserved. Made for Indian students.</div>
+                <div class="flex gap-4">
+                    <span>Privacy Policy</span>
+                    <span>Terms of Guidance</span>
+                    <span>Student Integrity Code</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- 1. AUTHENTICATION MODAL (Simple, Clean, No-OTP) -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Tabs -->
+            <div class="flex border-b border-slate-800 mb-6">
+                <button id="tab-login-btn" onclick="switchAuthTab('login')" class="flex-1 pb-3 font-bold text-sm border-b-2 border-amber-400 text-amber-400 text-center transition">Sign In</button>
+                <button id="tab-signup-btn" onclick="switchAuthTab('signup')" class="flex-1 pb-3 font-bold text-sm border-b-2 border-transparent text-slate-400 text-center hover:text-slate-200 transition">Create Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="form-login" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Email or Phone Number</label>
+                    <input type="text" id="login-identifier" required placeholder="name@domain.com or 9876543210" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <label class="flex items-center gap-1.5 cursor-pointer">
+                        <input type="checkbox" checked class="accent-amber-500 rounded"> Remember me
+                    </label>
+                    <a href="javascript:void(0)" onclick="notifyAlert('Password reset link sent to demo mail!')" class="text-amber-400 hover:underline">Forgot password?</a>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition shadow-gold-sm">
+                    Enter Campus Guide
+                </button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="form-signup" onsubmit="handleSignup(event)" class="space-y-3 hidden">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+                    <input type="text" id="signup-name" required placeholder="e.g. Aryan Sharma" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Email or Phone Number</label>
+                    <input type="text" id="signup-identifier" required placeholder="e.g. aryan@gmail.com" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Stream</label>
+                        <select id="signup-stream" class="w-full px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white focus:outline-none focus:border-amber-400">
+                            <option value="Science">Science</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Engineering">Engineering</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Degree Target</label>
+                        <select id="signup-degree" class="w-full px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white focus:outline-none focus:border-amber-400">
+                            <option value="UG">UG (Bachelors)</option>
+                            <option value="PG">PG (Masters)</option>
+                            <option value="PhD">PhD / Research</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+                    <input type="password" id="signup-password" required placeholder="At least 6 chars" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" required placeholder="Re-enter password" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition shadow-gold-sm mt-2">
+                    Create Student Profile
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="text-[11px] text-slate-500">By continuing, you agree to Campus Guide's student verification terms.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. COLLEGE DETAILS MODAL -->
+    <div id="details-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDetailsModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="details-content">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. MENTORSHIP REQUEST MODAL -->
+    <div id="mentorship-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeMentorshipModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto text-xl mb-2">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Request Senior Mentorship</h3>
+                <p class="text-xs text-slate-400 mt-1">Talk to a senior studying in your dream college regarding academics, labs, and cutoff realities.</p>
+            </div>
+            <form onsubmit="handleMentorshipSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Target University</label>
+                    <input type="text" id="mentor-uni" required placeholder="e.g. IIT Bombay / BHU / DU" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Stream & Goal</label>
+                    <input type="text" id="mentor-goal" required placeholder="e.g. B.Tech Computer Science / MA Economics" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">What do you want to ask?</label>
+                    <textarea rows="3" required placeholder="Hostel quality, professor research guidance, mess food, campus safety..." class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition">
+                    Send Mentorship Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 4. CUSTOM NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-amber-500 text-amber-300 px-5 py-3 rounded-xl shadow-gold-sm hidden items-center gap-3 text-sm">
+        <i class="fa-solid fa-circle-check text-amber-400"></i>
+        <span id="toast-message">Message text</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & DATABASE -->
+    <script>
+        // Database of top Central, State, IITs, and NITs with metrics
+        const COLLEGES_DATA = [
+            {
+                id: 1,
+                name: "IIT Bombay (Indian Institute of Technology)",
+                city: "Mumbai, Maharashtra",
+                category: "IIT",
+                streams: ["Engineering", "Science"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.8,
+                metrics: {
+                    research: 4.9,
+                    academics: 4.9,
+                    food: 4.2,
+                    hostel: 4.3,
+                    environment: 4.8
+                },
+                highlights: "Superb research laboratories, Powai Lake scenic campus, top-tier tech incubator (SINE), high international citations.",
+                messReview: "Multiple hostel messes. North and South Indian separate menus; decent quality night canteens available till 3 AM.",
+                hostelReview: "Single rooms for senior years; junior years double occupancy. High-speed LAN, green and peaceful hostel blocks.",
+                verifiedSeniorQuote: "Research freedom is phenomenal. Professors help you get published in top global journals."
+            },
+            {
+                id: 2,
+                name: "Jawaharlal Nehru University (JNU)",
+                city: "New Delhi",
+                category: "Central",
+                streams: ["Arts", "Science", "Law"],
+                levels: ["PG", "PhD"],
+                overallRating: 4.7,
+                metrics: {
+                    research: 4.8,
+                    academics: 4.8,
+                    food: 4.3,
+                    hostel: 3.9,
+                    environment: 4.9
+                },
+                highlights: "Best in India for Social Sciences, International Relations & Languages. Massive lush green 1000-acre campus with peacocks.",
+                messReview: "Extremely affordable student-run mess. Wholesome vegetarian and non-vegetarian thalis; 24/7 dhaba hub at Ganga Dhabha.",
+                hostelReview: "Very nominal hostel fees. Older architecture, but unmatched intellectual peer environment and complete late-night safety.",
+                verifiedSeniorQuote: "Library is open 24 hours. The political, philosophical debates and research discussions shape your worldview."
+            },
+            {
+                id: 3,
+                name: "National Institute of Technology (NIT Trichy)",
+                city: "Tiruchirappalli, Tamil Nadu",
+                category: "NIT",
+                streams: ["Engineering", "Science", "Commerce"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.6,
+                metrics: {
+                    research: 4.5,
+                    academics: 4.7,
+                    food: 4.4,
+                    hostel: 4.2,
+                    environment: 4.4
+                },
+                highlights: "Consistently ranked #1 NIT in India. Renowned Siemens manufacturing lab, strong placements, vibrant club culture.",
+                messReview: "Options for North, South, Andhra, and Kerala mess wings. Great breakfast menu and fruit juice centers across hostels.",
+                hostelReview: "Spacious mega-hostels for boys and girls with high-speed internet and sports grounds inside hostel quads.",
+                verifiedSeniorQuote: "Academic pressure is manageable. Practical labs and technical clubs give great industry exposure."
+            },
+            {
+                id: 4,
+                name: "University of Delhi (DU - North Campus)",
+                city: "Delhi",
+                category: "Central",
+                streams: ["Arts", "Commerce", "Science", "Law"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.6,
+                metrics: {
+                    research: 4.4,
+                    academics: 4.7,
+                    food: 4.1,
+                    hostel: 3.8,
+                    environment: 4.7
+                },
+                highlights: "Home to SRCC, St. Stephen's, Hindu College, and Faculty of Management Studies (FMS). Historic campus, rich cultural fests.",
+                messReview: "Hostel food varies by college; widespread and cheap cafes at Hudson Lane, Tom Uncle Maggie, and Kamla Nagar nearby.",
+                hostelReview: "Limited hostel seats allocated by merit/distance. Outstation students often stay in nearby PG accommodations in Vijay Nagar.",
+                verifiedSeniorQuote: "Peer quality in Commerce and Humanities is the best in the country. Fests and societies teach you real leadership."
+            },
+            {
+                id: 5,
+                name: "Banaras Hindu University (BHU)",
+                city: "Varanasi, Uttar Pradesh",
+                category: "Central",
+                streams: ["Science", "Arts", "Commerce", "Law", "Engineering"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.5,
+                metrics: {
+                    research: 4.6,
+                    academics: 4.5,
+                    food: 4.2,
+                    hostel: 4.1,
+                    environment: 4.8
+                },
+                highlights: "Asia's largest residential university campus with 30,000+ students. Extensive botanical labs, Ayurvedic research, and VT temple.",
+                messReview: "Pure vegetarian traditional North Indian food. Inexpensive, balanced, and hygienic. Multiple canteens with seasonal dishes.",
+                hostelReview: "Peaceful tree-lined hostels with dedicated study rooms. Wi-Fi and power backup provided across all faculties.",
+                verifiedSeniorQuote: "The campus is like a self-sufficient township. Science faculty has great DST and CSIR funded projects."
+            },
+            {
+                id: 6,
+                name: "IIT Delhi",
+                city: "Hauz Khas, New Delhi",
+                category: "IIT",
+                streams: ["Engineering", "Science", "Commerce"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.9,
+                metrics: {
+                    research: 4.9,
+                    academics: 4.9,
+                    food: 4.3,
+                    hostel: 4.0,
+                    environment: 4.7
+                },
+                highlights: "Located in the heart of Delhi, elite entrepreneurial culture, deep ties with industries and research institutions.",
+                messReview: "Hostel messes run by student mess secretaries. Multi-cuisine menus, ice-cream stalls, and food courts open late.",
+                hostelReview: "Compact rooms due to urban space, but well-equipped common rooms, music rooms, and gymnasiums in every hostel.",
+                verifiedSeniorQuote: "Coding culture and research funding here is world-class. Startup ecosystem is second to none."
+            },
+            {
+                id: 7,
+                name: "University of Hyderabad (HCU)",
+                city: "Hyderabad, Telangana",
+                category: "Central",
+                streams: ["Science", "Arts", "Commerce"],
+                levels: ["PG", "PhD"],
+                overallRating: 4.5,
+                metrics: {
+                    research: 4.7,
+                    academics: 4.6,
+                    food: 4.0,
+                    hostel: 4.2,
+                    environment: 4.9
+                },
+                highlights: "Sprawling 2300-acre natural campus with lakes and wildlife. Top tier in Pure Sciences, Chemistry, and Humanities.",
+                messReview: "Both South Indian and North Indian mess counters available. Clean drinking water stations and subsidized fruit stalls.",
+                hostelReview: "Hostels surrounded by lush nature. Free cycling campus culture and a central digital library open till midnight.",
+                verifiedSeniorQuote: "One of the calmest campuses in India for PhD scholars. No micromanagement from administration."
+            },
+            {
+                id: 8,
+                name: "Anna University (CEG Campus)",
+                city: "Chennai, Tamil Nadu",
+                category: "State",
+                streams: ["Engineering", "Science"],
+                levels: ["UG", "PG", "PhD"],
+                overallRating: 4.4,
+                metrics: {
+                    research: 4.3,
+                    academics: 4.5,
+                    food: 4.3,
+                    hostel: 3.9,
+                    environment: 4.3
+                },
+                highlights: "Premier state university of Tamil Nadu. High industry integration with Chennai's IT and automotive manufacturing hubs.",
+                messReview: "Authentic South Indian meals with sambar, rasam, curd, and special weekend non-veg dinners.",
+                hostelReview: "Basic amenities with strict hostel discipline. Safe environment with dedicated sports grounds.",
+                verifiedSeniorQuote: "Alumni network across automotive and core tech companies is very influential."
+            }
+        ];
+
+        // Active State
+        let selectedDegree = "UG";
+        let currentUser = null;
+
+        // Initialize from localStorage
+        window.onload = function() {
+            const savedUser = localStorage.getItem("campus_guide_user");
+            if (savedUser) {
+                try {
+                    currentUser = JSON.parse(savedUser);
+                    updateUserUI();
+                } catch(e) {
+                    localStorage.removeItem("campus_guide_user");
+                }
+            }
+            applyFilters();
+        };
+
+        // Render Colleges
+        function renderColleges(colleges) {
+            const container = document.getElementById("colleges-container");
+            const emptyState = document.getElementById("empty-state");
+            const countBadge = document.getElementById("results-count");
+
+            container.innerHTML = "";
+            countBadge.innerText = `${colleges.length} Listed`;
+
+            if (colleges.length === 0) {
+                emptyState.classList.remove("hidden");
+                return;
+            } else {
+                emptyState.classList.add("hidden");
+            }
+
+            colleges.forEach(col => {
+                const card = document.createElement("div");
+                card.className = "bg-slate-900 border border-slate-800 hover:border-amber-500/60 transition duration-300 rounded-3xl p-6 flex flex-col justify-between shadow-lg relative group";
+
+                // Badges
+                const categoryColor = col.category === 'IIT' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' :
+                                      col.category === 'NIT' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' :
+                                      col.category === 'Central' ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' :
+                                      'bg-amber-500/20 text-amber-400 border-amber-500/30';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-3">
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider border ${categoryColor}">
+                                ${col.category} University
+                            </span>
+                            <div class="flex items-center gap-1.5 bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800 text-xs font-bold text-amber-400">
+                                <i class="fa-solid fa-star text-[10px]"></i> ${col.overallRating}
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition leading-snug">${col.name}</h3>
+                        <p class="text-xs text-slate-400 flex items-center gap-1.5 mt-1">
+                            <i class="fa-solid fa-location-dot text-slate-500"></i> ${col.city}
+                        </p>
+
+                        <!-- Academic & Research Indicator -->
+                        <div class="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800/80">
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <div>
+                                    <span class="text-slate-400 text-[11px] block">Research & Labs:</span>
+                                    <span class="font-bold text-amber-400 flex items-center gap-1">
+                                        <i class="fa-solid fa-flask text-[10px]"></i> ${col.metrics.research} / 5.0
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 text-[11px] block">Mess & Food:</span>
+                                    <span class="font-bold text-slate-200 flex items-center gap-1">
+                                        <i class="fa-solid fa-utensils text-[10px] text-amber-400"></i> ${col.metrics.food} / 5.0
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 text-[11px] block">Hostel Quality:</span>
+                                    <span class="font-bold text-slate-200 flex items-center gap-1">
+                                        <i class="fa-solid fa-bed text-[10px] text-amber-400"></i> ${col.metrics.hostel} / 5.0
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 text-[11px] block">Campus Life:</span>
+                                    <span class="font-bold text-slate-200 flex items-center gap-1">
+                                        <i class="fa-solid fa-tree text-[10px] text-amber-400"></i> ${col.metrics.environment} / 5.0
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Verified quote snippet -->
+                        <p class="mt-3 text-xs text-slate-400 italic line-clamp-2">
+                            "${col.verifiedSeniorQuote}"
+                        </p>
+
+                        <!-- Stream tags -->
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            ${col.streams.map(s => `<span class="text-[10px] px-2 py-0.5 rounded-md bg-slate-800 text-slate-300 font-medium">${s}</span>`).join('')}
+                            <span class="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 font-medium border border-amber-500/20">${col.levels.join(', ')}</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                        <button onclick="viewCollegeDetails(${col.id})" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                            Senior Insights & Hostel Info <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                        <button onclick="openMentorshipForCollege('${col.name}')" title="Ask a Senior" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 flex items-center justify-center transition">
+                            <i class="fa-solid fa-comments text-xs"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Apply dynamic filters
+        function applyFilters() {
+            const searchQuery = document.getElementById("filter-search").value.toLowerCase().trim();
+            const category = document.getElementById("filter-type").value;
+            const stream = document.getElementById("filter-stream").value;
+            const sortBy = document.getElementById("filter-sort").value;
+            const minRating = parseFloat(document.getElementById("filter-min-rating").value);
+
+            let filtered = COLLEGES_DATA.filter(col => {
+                // Search query match
+                const matchesSearch = col.name.toLowerCase().includes(searchQuery) || 
+                                      col.city.toLowerCase().includes(searchQuery);
+
+                // Category match
+                const matchesCategory = (category === "ALL") || (col.category === category);
+
+                // Stream match
+                const matchesStream = (stream === "ALL") || col.streams.includes(stream);
+
+                // Degree Level match
+                const matchesLevel = col.levels.includes(selectedDegree);
+
+                // Rating match
+                const matchesRating = col.overallRating >= minRating;
+
+                return matchesSearch && matchesCategory && matchesStream && matchesLevel && matchesRating;
+            });
+
+            // Sorting by chosen metric
+            filtered.sort((a, b) => {
+                if (sortBy === "research") return b.metrics.research - a.metrics.research;
+                if (sortBy === "food") return b.metrics.food - a.metrics.food;
+                if (sortBy === "hostel") return b.metrics.hostel - a.metrics.hostel;
+                if (sortBy === "environment") return b.metrics.environment - a.metrics.environment;
+                if (sortBy === "academics") return b.metrics.academics - a.metrics.academics;
+                return b.overallRating - a.overallRating;
+            });
+
+            renderColleges(filtered);
+        }
+
+        // Switch degree button active state
+        function toggleDegree(degree, element) {
+            selectedDegree = degree;
+            document.querySelectorAll(".degree-btn").forEach(btn => {
+                btn.classList.remove("border-amber-400", "text-amber-400", "bg-amber-500/10");
+                btn.classList.add("border-slate-700", "text-slate-300", "bg-slate-950");
+            });
+            element.classList.remove("border-slate-700", "text-slate-300", "bg-slate-950");
+            element.classList.add("border-amber-400", "text-amber-400", "bg-amber-500/10");
+            applyFilters();
+        }
+
+        function updateRatingDisplay(val) {
+            document.getElementById("rating-val").innerText = val + "+";
+        }
+
+        function resetFilters() {
+            document.getElementById("filter-search").value = "";
+            document.getElementById("filter-type").value = "ALL";
+            document.getElementById("filter-stream").value = "ALL";
+            document.getElementById("filter-sort").value = "research";
+            document.getElementById("filter-min-rating").value = "3.5";
+            document.getElementById("rating-val").innerText = "3.5+";
+            selectedDegree = "UG";
+            document.querySelectorAll(".degree-btn").forEach((btn, idx) => {
+                if(idx === 0) {
+                    btn.classList.add("border-amber-400", "text-amber-400", "bg-amber-500/10");
+                } else {
+                    btn.classList.remove("border-amber-400", "text-amber-400", "bg-amber-500/10");
+                }
+            });
+            applyFilters();
+            notifyAlert("All filters have been reset.");
+        }
+
+        function quickSelectCategory(cat) {
+            document.getElementById("filter-type").value = cat;
+            applyFilters();
+        }
+
+        // View Detailed Modal
+        function viewCollegeDetails(id) {
+            const col = COLLEGES_DATA.find(c => c.id === id);
+            if (!col) return;
+
+            const modalContent = document.getElementById("details-content");
+            modalContent.innerHTML = `
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">${col.category} University Report</span>
+                        <h2 class="text-2xl font-black text-white mt-1">${col.name}</h2>
+                        <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-location-dot text-amber-400"></i> ${col.city}</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-extrabold text-amber-400">${col.overallRating} <span class="text-xs text-slate-400">/ 5.0</span></div>
+                        <div class="text-[10px] text-slate-400">Senior Trust Score</div>
+                    </div>
+                </div>
+
+                <!-- Metrics breakdown -->
+                <div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800">
+                        <div class="text-xs text-slate-400">Research</div>
+                        <div class="text-base font-bold text-amber-400 mt-1">${col.metrics.research}</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800">
+                        <div class="text-xs text-slate-400">Academics</div>
+                        <div class="text-base font-bold text-amber-400 mt-1">${col.metrics.academics}</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800">
+                        <div class="text-xs text-slate-400">Mess / Food</div>
+                        <div class="text-base font-bold text-amber-400 mt-1">${col.metrics.food}</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800">
+                        <div class="text-xs text-slate-400">Hostel</div>
+                        <div class="text-base font-bold text-amber-400 mt-1">${col.metrics.hostel}</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 col-span-2 sm:col-span-1">
+                        <div class="text-xs text-slate-400">Environment</div>
+                        <div class="text-base font-bold text-amber-400 mt-1">${col.metrics.environment}</div>
+                    </div>
+                </div>
+
+                <!-- Academic Research Highlights -->
+                <div class="mt-6 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-microscope"></i> Academic Focus & Research Culture
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">${col.highlights}</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-utensils"></i> Hostel Mess & Food Reality
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">${col.messReview}</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bed"></i> Hostel Rooms & Campus Living
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">${col.hostelReview}</p>
+                    </div>
+                </div>
+
+                <!-- Modal CTA -->
+                <div class="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+                    <button onclick="openMentorshipForCollege('${col.name}')" class="flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-tie"></i> Connect With ${col.category} Senior Mentor
+                    </button>
+                    <button onclick="closeDetailsModal()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold">
+                        Close
+                    </button>
+                </div>
+            `;
+            document.getElementById("details-modal").classList.remove("hidden");
+        }
+
+        function closeDetailsModal() {
+            document.getElementById("details-modal").classList.add("hidden");
+        }
+
+        // ================= AUTH SYSTEM (Smooth & No-OTP) =================
+        function openAuthModal(tab = 'login') {
+            document.getElementById("auth-modal").classList.remove("hidden");
+            switchAuthTab(tab);
+        }
+
+        function closeAuthModal() {
+            document.getElementById("auth-modal").classList.add("hidden");
+        }
+
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById("form-login");
+            const signupForm = document.getElementById("form-signup");
+            const loginTabBtn = document.getElementById("tab-login-btn");
+            const signupTabBtn = document.getElementById("tab-signup-btn");
+
+            if (tab === 'login') {
+                loginForm.classList.remove("hidden");
+                signupForm.classList.add("hidden");
+                loginTabBtn.className = "flex-1 pb-3 font-bold text-sm border-b-2 border-amber-400 text-amber-400 text-center transition";
+                signupTabBtn.className = "flex-1 pb-3 font-bold text-sm border-b-2 border-transparent text-slate-400 text-center hover:text-slate-200 transition";
+            } else {
+                loginForm.classList.add("hidden");
+                signupForm.classList.remove("hidden");
+                signupTabBtn.className = "flex-1 pb-3 font-bold text-sm border-b-2 border-amber-400 text-amber-400 text-center transition";
+                loginTabBtn.className = "flex-1 pb-3 font-bold text-sm border-b-2 border-transparent text-slate-400 text-center hover:text-slate-200 transition";
+            }
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById("signup-name").value;
+            const identifier = document.getElementById("signup-identifier").value;
+            const stream = document.getElementById("signup-stream").value;
+            const degree = document.getElementById("signup-degree").value;
+            const password = document.getElementById("signup-password").value;
+            const confirmPassword = document.getElementById("signup-confirm-password").value;
+
+            if (password !== confirmPassword) {
+                notifyAlert("Passwords do not match!");
+                return;
+            }
+
+            if (password.length < 6) {
+                notifyAlert("Password must be at least 6 characters!");
+                return;
+            }
+
+            const newUser = {
+                name: name,
+                identifier: identifier,
+                stream: stream,
+                degree: degree,
+                password: password // In real production, hash passwords via secure backend
+            };
+
+            // Save user profile in LocalStorage
+            localStorage.setItem("campus_guide_user", JSON.stringify(newUser));
+            currentUser = newUser;
+
+            updateUserUI();
+            closeAuthModal();
+            notifyAlert(`Welcome to Campus Guide, ${name}! Your profile is ready.`);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const identifier = document.getElementById("login-identifier").value;
+            const password = document.getElementById("login-password").value;
+
+            const storedUser = localStorage.getItem("campus_guide_user");
+
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.identifier === identifier && user.password === password) {
+                    currentUser = user;
+                    updateUserUI();
+                    closeAuthModal();
+                    notifyAlert(`Welcome back, ${user.name}!`);
+                    return;
+                }
+            }
+
+            // Fallback demo profile login
+            currentUser = {
+                name: identifier.split("@")[0] || "Student Aspirant",
+                identifier: identifier,
+                stream: "Science",
+                degree: "UG"
+            };
+            localStorage.setItem("campus_guide_user", JSON.stringify(currentUser));
+            updateUserUI();
+            closeAuthModal();
+            notifyAlert(`Logged in successfully as ${currentUser.name}!`);
+        }
+
+        function updateUserUI() {
+            if (currentUser) {
+                document.getElementById("guest-auth").classList.add("hidden");
+                document.getElementById("user-profile-menu").classList.remove("hidden");
+                document.getElementById("nav-user-name").innerText = currentUser.name;
+                document.getElementById("nav-user-stream").innerText = `${currentUser.stream || 'Aspirant'} • ${currentUser.degree || 'UG'}`;
+
+                // Auto-set the user's preferred stream filter if available
+                if (currentUser.stream) {
+                    const streamSelect = document.getElementById("filter-stream");
+                    if ([...streamSelect.options].some(o => o.value === currentUser.stream)) {
+                        streamSelect.value = currentUser.stream;
+                        applyFilters();
+                    }
+                }
+            } else {
+                document.getElementById("guest-auth").classList.remove("hidden");
+                document.getElementById("user-profile-menu").classList.add("hidden");
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem("campus_guide_user");
+            currentUser = null;
+            updateUserUI();
+            notifyAlert("You have been signed out.");
+        }
+
+        // ================= MENTORSHIP & FEEDBACK MODALS =================
+        function openMentorshipModal() {
+            document.getElementById("mentorship-modal").classList.remove("hidden");
+        }
+
+        function openMentorshipForCollege(collegeName) {
+            closeDetailsModal();
+            document.getElementById("mentor-uni").value = collegeName;
+            document.getElementById("mentorship-modal").classList.remove("hidden");
+        }
+
+        function closeMentorshipModal() {
+            document.getElementById("mentorship-modal").classList.add("hidden");
+        }
+
+        function handleMentorshipSubmit(e) {
+            e.preventDefault();
+            closeMentorshipModal();
+            notifyAlert("Mentorship request received! A senior mentor will contact you within 24 hours.");
+        }
+
+        function openFeedbackModal() {
+            notifyAlert("Feedback portal: Verified student submissions are currently open. DM us on Instagram @campusguide.in with your student ID card!");
+        }
+
+        // Custom in-page Alert / Toast
+        function notifyAlert(msg) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toast-message");
+            toastMsg.innerText = msg;
+            toast.classList.remove("hidden");
+            toast.classList.add("flex");
+            
+            setTimeout(() => {
+                toast.classList.add("hidden");
+                toast.classList.remove("flex");
+            }, 3800);
+        }
+    </script>
+</body>
+</html>
